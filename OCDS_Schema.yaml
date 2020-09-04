@@ -12,10 +12,10 @@ components:
           type: string
           minLength: 1
         id:
-            title: Release ID
-            description: 'An identifier for this particular release of information. A release identifier must be unique within the scope of its related contracting process (defined by a common ocid). A release identifier must not contain the # character.'
-            type: string
-            minLength: 1
+          title: Release ID
+          description: 'An identifier for this particular release of information. A release identifier must be unique within the scope of its related contracting process (defined by a common ocid). A release identifier must not contain the # character.'
+          type: string
+          minLength: 1
             #omitWhenMerged: true
         title:
           title: Title
