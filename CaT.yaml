@@ -55,7 +55,7 @@ paths:
           content:
             application/vnd.api+json:
               schema:
-                $ref: '#/components/schemas/TsAndCs'
+                $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/OCDS_Schema.yaml#/components/schemas/TsAndCs'
               
         '401':
           $ref: '#/components/responses/401Unauthorized'
