@@ -1,13 +1,25 @@
-/users:
-    get:
-        summary: Returns a list of users.
-        description: Optional extended description in CommonMark or HTML.
-        responses:
-            '200':    # status code
-                description: A JSON array of user names
-                content:
-                    application/json:
-                        schema: 
-                            type: array
-                            items: 
-                                type: string
+components:  
+    schemas:
+        ReleaseSummary:
+            title: OCDS Release Summary
+            description: >-
+                'Each release provides data about a single contracting process at a particular point in time. Releases can be used to notify users of new tenders, awards, contracts and other updates. Releases may repeat or update information provided previously in this contracting process. One contracting process may have many releases. A ''record'' of a contracting process follows the same structure as a release, but combines information from multiple points in time into a single summary.'
+            type: object
+            properties:
+                ocid:
+                    title: Open Contracting ID
+                    description: 'A globally unique identifier for this Open Contracting Process. Composed of an ocid prefix and an identifier for the contracting process. For more information see the [Open Contracting Identifier guidance](https://standard.open-contracting.org/1.1/en/schema/identifiers/)'
+                    type: string
+                    minLength: 1
+                id:
+                    title: Release ID
+                    description: 'An identifier for this particular release of information. A release identifier must be unique within the scope of its related contracting process (defined by a common ocid). A release identifier must not contain the # character.'
+                    type: string
+                    minLength: 1
+                       #omitWhenMerged: true
+                title:
+                    title: Title
+                    type: string
+                    nullable: true
+                    description: A overall title for this contracting process or release.
+  
