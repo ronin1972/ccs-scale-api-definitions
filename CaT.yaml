@@ -43,7 +43,7 @@ paths:
 
   /cat/account/{self}/tsandcs:
     parameters:
-        - $ref: '#/components/parameters/SelfParam'
+        - $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/OCDS_Params.yaml#/components/parameters/SelfParamters'
     get:
       description: Retrieve the terms and conditions required for CaT and if the user has signed up to them.
       tags:
