@@ -1,0 +1,9 @@
+xxxxx:
+  parameters:
+    SelfParam:
+      name: self
+      in: path
+      required: true
+      description: User ID
+      schema:
+        $ref: '#/components/schemas/GenericID'
