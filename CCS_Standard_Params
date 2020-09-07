@@ -1,4 +1,4 @@
-xxxxx:
+components:
   parameters:
     SelfParam:
       name: self
