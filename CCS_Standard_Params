@@ -6,4 +6,4 @@ components:
       required: true
       description: User ID
       schema:
-        $ref: '#/components/schemas/GenericID'
+        $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Schema.yaml#/components/schemas/GenericID'
