@@ -67,7 +67,7 @@ paths:
 # Salesforce to Jaggaer 
   /tenders/procurementcase/{procID}/Rfxs:
     parameters: 
-      - $ref: '#/components/parameters/ProcurementParam'
+      - $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/OCDS_Params.yaml#/components/parameters/ProcurementParam'
     post:
       description: Creates a new RFx for the case.
       tags:
@@ -77,18 +77,18 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Tender'
+              $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/OCDS_Schema.yaml#/components/schemas/Tender'
       responses:
         '200':
           description: ok
           content:
             application/vnd.api+json:
               schema:
-                $ref: '#/components/schemas/GenericID'
+                $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Schema.yaml#/components/schemas/GenericID'
         '401':
-          $ref: '#/components/responses/401Unauthorized'
+          $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Responses.yaml#/components/responses/401Unauthorized'
         '403':
-          $ref: '#/components/responses/403Forbidden'#
+          $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Responses.yaml#/components/responses/403Forbidden'#
 #
 # Update an ITT event's details (in Salesforce) when the event has been
 # publihsed on the eSourcing platform to the invited suppliers.
@@ -113,7 +113,7 @@ paths:
           content:
             multipart/form-data:
               schema:
-                $ref: '#/components/schemas/ReleaseArray'        
+                $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/OCDS_Schemas.yam#/components/schemas/ReleaseArray'        
           description: "Accepted"
         '403':
           description: "Forbidden"
@@ -124,8 +124,8 @@ paths:
 # 
   /tenders/procurementcase/deltas/{procID}/rfxs/{rfxID}/terminate/:
     parameters: 
-      - $ref: '#/components/parameters/ProcurementParam'
-      - $ref: '#/components/parameters/RFxParam'
+      - $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/OCDS_Params.yaml#/components/parameters/ProcurementParam'
+      - $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/OCDS_Params.yaml#/components/parameters/RFxParam'
     put:
       description: Terminate the RFx
       tags:
@@ -135,16 +135,16 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/TerminationType'
+              $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/OCDS_Schema.yaml#/components/schemas/TerminationType'
       responses:
         '200':
           description: ok
           content:
             application/vnd.api+json:
               schema:
-                $ref: '#/components/schemas/GenericID'
+                $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Schemas.yaml#/components/schemas/GenericID'
         '401':
-          $ref: '#/components/responses/401Unauthorized'
+          $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Responses.yaml#/components/responses/401Unauthorized'
         '403':
-          $ref: '#/components/responses/403Forbidden'
+          $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Responses.yaml#/components/responses/403Forbidden'
       summary: Terminate RFx
