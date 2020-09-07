@@ -1,0 +1,150 @@
+openapi: "3.0.0"
+info:
+  description: "This is an prototype CCS eSourcing integration (Tenders) Service API."
+  version: "1.0.0"
+  title: "CCS Tenders API"
+  termsOfService: "http://api.crowncommercial.gov.uk/terms/"
+  contact:
+    email: "apiteam@crowncommercial.gov.uk"
+  license:
+    name: "Open Government Licence 3.0"
+    url: "https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+tags:
+- name: "Procurement Case"
+  description: "ITT event" 
+- name: "ITT Events"
+  description: "ITT event"
+ 
+
+  externalDocs:
+    description: "Find out more"
+    url: "http://apis.crowncommercial.gov.uk"
+#
+paths:
+#
+# This method will only create a Procurement Case/Project in Jaggaer
+# Salesforce to Jaggaer 
+  /tenders/procurementcase/salesforce:
+    put:
+      tags:
+        - Procurement Case       
+      summary: "US 1.0 - Create a new case in Jaggaer - Salesforce will call Jaggaer"
+      operationId: app.createProcurementCase
+      parameters:
+      - in: query
+        name: "procurement_reference"
+        schema:
+          type: string
+        example: ""
+        required: true
+        description: "Procurement case reference - unique identifier"
+      - in: query
+        name: "subject"
+        schema:
+          type: string
+        example: ""          
+        required: true
+        description: "ITT status field"
+      - in: query
+        name: "procurementRoute"
+        schema:
+          type: string
+        example: ""         
+        required: true
+        description: ""   
+      responses:
+        '202':
+          description: "Accepted"
+        '403':
+          description: "Forbidden"
+        '404':
+          description: "Not found"
+        '500':
+          description: "Internal Server Error "    
+#
+#
+# This method will create a RFx event (ITT or RFI etc.) in Jaggaer inside a Procurement Case/Project
+# Salesforce to Jaggaer 
+  /tenders/procurementcase/{procID}/Rfxs:
+    parameters: 
+      - $ref: '#/components/parameters/ProcurementParam'
+    post:
+      description: Creates a new RFx for the case.
+      tags:
+        - ITT Events
+      operationId: createCaseRFx
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Tender'
+      responses:
+        '200':
+          description: ok
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/GenericID'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'#
+#
+# Update an ITT event's details (in Salesforce) when the event has been
+# publihsed on the eSourcing platform to the invited suppliers.
+#
+  /tenders/procurementcase/deltas:
+   get:
+      tags:
+        - ITT Events  
+      summary: "US3-6 - Update an ITT event's details (in Salesforce) when it has been published on the eSourcing platform to the invited suppliers."
+      operationId: app.putstatus   
+      parameters:
+      - in: query
+        name: "lastSuccessRun"
+        schema:
+          type: string
+          format: date-time
+        example: "dd/mm/yy:hh:mm:ss"
+        required: true
+        description: "Date and Time stamp of last successful run."
+      responses:
+        '200':
+          content:
+            multipart/form-data:
+              schema:
+                $ref: '#/components/schemas/ReleaseArray'        
+          description: "Accepted"
+        '403':
+          description: "Forbidden"
+        '404':
+          description: "Not found"
+        '500':
+          description: "Internal Server Error "    
+# 
+  /tenders/procurementcase/deltas/{procID}/rfxs/{rfxID}/terminate/:
+    parameters: 
+      - $ref: '#/components/parameters/ProcurementParam'
+      - $ref: '#/components/parameters/RFxParam'
+    put:
+      description: Terminate the RFx
+      tags:
+        - ITT Events
+      operationId: terminate
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TerminationType'
+      responses:
+        '200':
+          description: ok
+          content:
+            application/vnd.api+json:
+              schema:
+                $ref: '#/components/schemas/GenericID'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '403':
+          $ref: '#/components/responses/403Forbidden'
+      summary: Terminate RFx
