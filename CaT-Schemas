@@ -1,7 +1,9 @@
+components:
+  schemas:
     TsAndCs:
       type: array
-      items:
-        $ref: '#/components/schemas/Term'
+    items:
+      $ref: '#/components/schemas/Term'
         
     TermID:
       type: string 
