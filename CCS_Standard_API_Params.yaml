@@ -14,7 +14,7 @@ components:
       required: true
       description: Organisation ID
       schema:
-        $ref: '#/components/schemas/GenericID'
+        $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Schema.yaml#/components/schemas/GenericID'
         
     TeamParam:
       name: teamID
@@ -22,7 +22,7 @@ components:
       required: true
       description: Team ID
       schema:
-        $ref: '#/components/schemas/GenericID'
+        $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Schema.yaml#/components/schemas/GenericID'
         
     TeamMemberParam:
       name: teamMemberID
@@ -30,7 +30,7 @@ components:
       required: true
       description: Team member ID
       schema:
-        $ref: '#/components/schemas/GenericID'
+        $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Schema.yaml#/components/schemas/GenericID'
         
     AgreementParam:
       name: agreementID
@@ -38,7 +38,7 @@ components:
       required: true
       description: Agreement
       schema:
-        $ref: '#/components/schemas/AgreementID'
+        $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Schema.yaml#/components/schemas/AgreementID'
         
     LotParam:
       name: lotID
@@ -46,7 +46,7 @@ components:
       required: true
       description: Lot
       schema:
-        $ref: '#/components/schemas/GenericID'
+        $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Schema.yaml#/components/schemas/GenericID'
         
     GMParam:
       name: GuidedMatchHistoryID
@@ -54,7 +54,7 @@ components:
       required: true
       description: Guided Match ID
       schema:
-        $ref: '#/components/schemas/GenericID'
+        $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Schema.yaml#/components/schemas/GenericID'
         
     FMParam:
       name: FMID
@@ -62,7 +62,7 @@ components:
       required: true
       description: Facilities Management Transfer ID
       schema:
-        $ref: '#/components/schemas/GenericID'
+        $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Schema.yaml#/components/schemas/GenericID'
         
     ProcurementParam:
       name: procID
@@ -78,7 +78,7 @@ components:
       required: true
       description: RFx ID
       schema:
-        $ref: '#/components/schemas/ProcurementID'
+        $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Schema.yaml#/components/schemas/ProcurementID'
         
     HLNeedParam:
       name: hlNeedID
@@ -86,7 +86,7 @@ components:
       required: true
       description: High Level Need ID
       schema:
-        $ref: '#/components/schemas/GenericID'
+        $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Schema.yaml#/components/schemas/GenericID'
         
     SupplierParam:
       name: supplierID
@@ -94,7 +94,7 @@ components:
       required: true
       description: Supplier ID
       schema:
-        $ref: '#/components/schemas/GenericID'
+        $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Schema.yaml#/components/schemas/GenericID'
         
     ResponseParam:
       name: responseID
@@ -102,4 +102,4 @@ components:
       required: true
       description: High Level Need ID
       schema:
-        $ref: '#/components/schemas/GenericID'
+        $ref: 'https://raw.githubusercontent.com/ronin1972/ccs-scale-api-definitions/master/CCS_Standard_API_Schema.yaml#/components/schemas/GenericID'
