@@ -1,0 +1,9 @@
+openapi: 3.0.0
+info:
+  description: Contains the vanilla definition of OCDS in Github
+  version: "0.1"
+servers:
+- url: https://virtserver.swaggerhub.com/Crown-Commercial/OCDS_vanilla/0.1
+  description: SwaggerHub API Auto Mocking
+paths: {}
+components: {}
